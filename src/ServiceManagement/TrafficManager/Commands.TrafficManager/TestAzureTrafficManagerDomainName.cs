@@ -20,14 +20,26 @@ namespace Microsoft.WindowsAzure.Commands.TrafficManager
     [Cmdlet(VerbsDiagnostic.Test, "AzureTrafficManagerDomainName"), OutputType(typeof(bool))]
     public class TestAzureTrafficManagerDomainName : TrafficManagerBaseCmdlet
     {
+        private const string TrafficManagerSuffix = "trafficmanager.net";
+
         [Parameter(Position = 0, Mandatory = true)]
         [ValidateNotNullOrEmpty]
         public string DomainName { get; set; }
 
         public override void ExecuteCmdlet()
         {
-            bool result = TrafficManagerClient.TestDomainAvailability(DomainName);
+            bool result = TrafficManagerClient.TestDomainAvailability(GetDomainNameToCheck(DomainName));
             WriteObject(result);
+        }
+
+        private string GetDomainNameToCheck(string domainName)
+        {
+            if (!string.IsNullOrEmpty(domainName) && !domainName.ToLower().EndsWith(TrafficManagerSuffix))
+            {
+                return string.Format("{0}.{1}", domainName, TrafficManagerSuffix);
+            }
+
+            return domainName;
         }
     }
 }

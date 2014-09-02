@@ -34,7 +34,7 @@ namespace Microsoft.WindowsAzure.Commands.TrafficManager.Endpoint
         public string Location { get; set; }
 
         [Parameter(Mandatory = false)]
-        [ValidateSet("CloudService", "AzureWebsite", "Any", IgnoreCase = false)]
+        [ValidateSet("CloudService", "AzureWebsite", "Any", "TrafficManager", IgnoreCase = false)]
         public string Type { get; set; }
 
         [Parameter(Mandatory = false)]
@@ -44,11 +44,14 @@ namespace Microsoft.WindowsAzure.Commands.TrafficManager.Endpoint
         [Parameter(Mandatory = false)]
         public int? Weight { get; set; }
 
+        [Parameter(Mandatory = false)]
+        public int? MinChildEndpoints { get; set; }
+
         public override void ExecuteCmdlet()
         {
             ProfileWithDefinition profile = TrafficManagerProfile.GetInstance();
 
-            TrafficManagerEndpoint endpoint = profile.Endpoints.FirstOrDefault(e => e.DomainName == DomainName);
+            TrafficManagerEndpoint endpoint = profile.Endpoints.FirstOrDefault(e => e.DomainName.Equals(DomainName, StringComparison.InvariantCultureIgnoreCase));
 
             if (endpoint == null)
             {
@@ -65,6 +68,7 @@ namespace Microsoft.WindowsAzure.Commands.TrafficManager.Endpoint
                 endpoint.Location = Location;
                 endpoint.Type = (EndpointType)Enum.Parse(typeof(EndpointType), Type);
                 endpoint.Weight = Weight.HasValue ? Weight.Value : 1;
+                endpoint.MinChildEndpoints = MinChildEndpoints.HasValue ? MinChildEndpoints.Value : 1;
                 endpoint.Status = (EndpointStatus)Enum.Parse(typeof(EndpointStatus), Status);
 
                 // Add it because the endpoint didn't exist
@@ -78,6 +82,7 @@ namespace Microsoft.WindowsAzure.Commands.TrafficManager.Endpoint
                 : endpoint.Type;
 
             endpoint.Weight = Weight.HasValue ? Weight.Value : endpoint.Weight;
+            endpoint.MinChildEndpoints = MinChildEndpoints.HasValue ? MinChildEndpoints.Value : endpoint.MinChildEndpoints;
 
             endpoint.Status = !String.IsNullOrEmpty(Status)
                 ? (EndpointStatus)Enum.Parse(typeof (EndpointStatus), Status)

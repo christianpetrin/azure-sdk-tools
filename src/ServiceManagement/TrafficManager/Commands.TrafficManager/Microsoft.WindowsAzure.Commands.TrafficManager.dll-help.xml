@@ -80,6 +80,7 @@ If you specify a value of Enabled, Traffic Manager monitors the endpoint and the
 -- CloudService
 -- AzureWebsite
 -- Any 
+-- TrafficManager 
 
 If there is more than one AzureWebsite endpoint, the endpoints must be in different datacenters. </maml:para>
           </maml:description>
@@ -87,6 +88,7 @@ If there is more than one AzureWebsite endpoint, the endpoints must be in differ
             <command:parameterValue required="true" variableLength="false">CloudService</command:parameterValue>
             <command:parameterValue required="true" variableLength="false">AzureWebsite</command:parameterValue>
             <command:parameterValue required="true" variableLength="false">Any</command:parameterValue>
+            <command:parameterValue required="true" variableLength="false">TrafficManager</command:parameterValue>
           </command:parameterValueGroup>
         </command:parameter>
       </command:syntaxItem>
@@ -154,6 +156,7 @@ If you specify a value of Enabled, Traffic Manager monitors the endpoint and the
 -- CloudService
 -- AzureWebsite
 -- Any 
+-- TrafficManager 
 
 If there is more than one AzureWebsite endpoint, the endpoints must be in different datacenters. </maml:para>
         </maml:description>
@@ -1445,13 +1448,15 @@ If you specify a value of Enabled, Traffic Manager monitors the endpoint and the
 -- CloudService
 -- AzureWebsite
 -- Any 
+-- TrafficManager 
 
 If there is more than one AzureWebsite endpoint, the endpoints must be in different datacenters. </maml:para>
           </maml:description>
           <command:parameterValueGroup>
             <command:parameterValue required="false" variableLength="false">CloudService</command:parameterValue>
-            <command:parameterValue required="false" variableLength="false">AzureWebsite</command:parameterValue>
             <command:parameterValue required="false" variableLength="false">Any</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">AzureWebsite</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">TrafficManager</command:parameterValue>
           </command:parameterValueGroup>
         </command:parameter>
         <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="">
@@ -1542,6 +1547,7 @@ If you specify a value of Enabled, Traffic Manager monitors the endpoint and the
 -- CloudService
 -- AzureWebsite
 -- Any 
+-- TrafficManager 
 
 If there is more than one AzureWebsite endpoint, the endpoints must be in different datacenters. </maml:para>
         </maml:description>

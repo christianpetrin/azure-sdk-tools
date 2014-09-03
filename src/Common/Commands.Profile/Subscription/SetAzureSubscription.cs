@@ -121,6 +121,7 @@ namespace Microsoft.WindowsAzure.Commands.Profile
             }
 
             subscription.SqlDatabaseDnsSuffix = Profile.CurrentEnvironment.SqlDatabaseDnsSuffix ?? WindowsAzureEnvironmentConstants.AzureSqlDatabaseDnsSuffix;
+            subscription.TrafficManagerEndpointSuffix = Profile.CurrentEnvironment.TrafficManagerEndpointSuffix ?? WindowsAzureEnvironmentConstants.AzureTrafficManagerEndpointSuffix;
 
             Profile.AddSubscription(subscription);
         }

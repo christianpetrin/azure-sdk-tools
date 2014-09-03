@@ -61,6 +61,7 @@ namespace Microsoft.WindowsAzure.Commands.Utilities.Common
                 ResourceManagerEndpoint = null,
                 SubscriptionId = s.Id,
                 SqlDatabaseDnsSuffix = WindowsAzureEnvironmentConstants.AzureSqlDatabaseDnsSuffix,
+                TrafficManagerEndpointSuffix = WindowsAzureEnvironmentConstants.AzureTrafficManagerEndpointSuffix,
             };
         }
 

@@ -126,5 +126,9 @@ namespace Microsoft.WindowsAzure.Commands.Utilities.Common
         public const string AzureActiveDirectoryEndpoint = "https://login.windows.net/";
 
         public const string ChinaActiveDirectoryEndpoint = "https://login.chinacloudapi.cn/";
+
+        public const string AzureTrafficManagerEndpointSuffix = "trafficmanager.net";
+
+        public const string ChinaTrafficManagerEndpointSuffix = "trafficmanager.cn";
     }
 }

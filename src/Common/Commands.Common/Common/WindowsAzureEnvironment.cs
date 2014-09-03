@@ -175,6 +175,11 @@ namespace Microsoft.WindowsAzure.Commands.Utilities.Common
         public string SqlDatabaseDnsSuffix { get; set; }
 
         /// <summary>
+        /// Gets or sets the DNS suffix for Azure Traffic Manager endpoint.
+        /// </summary>
+        public string TrafficManagerEndpointSuffix { get; set; }
+
+        /// <summary>
         /// Gets the management portal URI with a particular realm suffix if supplied
         /// </summary>
         /// <param name="realm">Realm for user's account</param>
@@ -258,6 +263,7 @@ namespace Microsoft.WindowsAzure.Commands.Utilities.Common
                         TokenProvider = tokenProvider,
                         GalleryEndpoint = !string.IsNullOrEmpty(GalleryEndpoint) ? new Uri(GalleryEndpoint) : null,
                         SqlDatabaseDnsSuffix = SqlDatabaseDnsSuffix ?? WindowsAzureEnvironmentConstants.AzureSqlDatabaseDnsSuffix,
+                        TrafficManagerEndpointSuffix = TrafficManagerEndpointSuffix ?? WindowsAzureEnvironmentConstants.AzureTrafficManagerEndpointSuffix,
                     };
 
                     if (mainToken.LoginType == LoginType.LiveId)
@@ -299,6 +305,7 @@ namespace Microsoft.WindowsAzure.Commands.Utilities.Common
                     StorageEndpointSuffix = WindowsAzureEnvironmentConstants.AzureStorageEndpointSuffix,
                     GalleryEndpoint = WindowsAzureEnvironmentConstants.GalleryEndpoint,
                     SqlDatabaseDnsSuffix = WindowsAzureEnvironmentConstants.AzureSqlDatabaseDnsSuffix,
+                    TrafficManagerEndpointSuffix = WindowsAzureEnvironmentConstants.AzureTrafficManagerEndpointSuffix,
                 }
             },
             {
@@ -316,6 +323,7 @@ namespace Microsoft.WindowsAzure.Commands.Utilities.Common
                     StorageEndpointSuffix = WindowsAzureEnvironmentConstants.ChinaStorageEndpointSuffix,
                     GalleryEndpoint = string.Empty,
                     SqlDatabaseDnsSuffix = WindowsAzureEnvironmentConstants.ChinaSqlDatabaseDnsSuffix,
+                    TrafficManagerEndpointSuffix = WindowsAzureEnvironmentConstants.ChinaTrafficManagerEndpointSuffix,
                 }
             }
         };

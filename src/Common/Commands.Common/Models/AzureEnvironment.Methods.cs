@@ -94,6 +94,7 @@ namespace Microsoft.WindowsAzure.Commands.Common.Models
                         { AzureEnvironment.Endpoint.StorageEndpointSuffix, WindowsAzureEnvironmentConstants.AzureStorageEndpointSuffix },
                         { AzureEnvironment.Endpoint.GalleryEndpoint, WindowsAzureEnvironmentConstants.GalleryEndpoint },
                         { AzureEnvironment.Endpoint.SqlDatabaseDnsSuffix, WindowsAzureEnvironmentConstants.AzureSqlDatabaseDnsSuffix },
+                        { AzureEnvironment.Endpoint.TrafficManagerEndpointSuffix, WindowsAzureEnvironmentConstants.AzureTrafficManagerEndpointSuffix },
                     }
                 }
             },
@@ -113,6 +114,7 @@ namespace Microsoft.WindowsAzure.Commands.Common.Models
                         { AzureEnvironment.Endpoint.StorageEndpointSuffix, WindowsAzureEnvironmentConstants.ChinaStorageEndpointSuffix },
                         { AzureEnvironment.Endpoint.GalleryEndpoint, null },
                         { AzureEnvironment.Endpoint.SqlDatabaseDnsSuffix, WindowsAzureEnvironmentConstants.ChinaSqlDatabaseDnsSuffix },
+                        { AzureEnvironment.Endpoint.TrafficManagerEndpointSuffix, WindowsAzureEnvironmentConstants.ChinaTrafficManagerEndpointSuffix },
                     }
                 }
             }
@@ -192,7 +194,9 @@ namespace Microsoft.WindowsAzure.Commands.Common.Models
 
             StorageEndpointSuffix,
 
-            ActiveDirectoryEndpoint
+            ActiveDirectoryEndpoint,
+
+            TrafficManagerEndpointSuffix,
         }
     }
 }

@@ -15,13 +15,12 @@
 namespace Microsoft.WindowsAzure.Commands.TrafficManager
 {
     using Microsoft.WindowsAzure.Commands.TrafficManager.Utilities;
+    using Microsoft.WindowsAzure.Commands.Utilities.Common;
     using System.Management.Automation;
 
     [Cmdlet(VerbsDiagnostic.Test, "AzureTrafficManagerDomainName"), OutputType(typeof(bool))]
     public class TestAzureTrafficManagerDomainName : TrafficManagerBaseCmdlet
     {
-        private const string TrafficManagerSuffix = "trafficmanager.net";
-
         [Parameter(Position = 0, Mandatory = true)]
         [ValidateNotNullOrEmpty]
         public string DomainName { get; set; }
@@ -34,6 +33,8 @@ namespace Microsoft.WindowsAzure.Commands.TrafficManager
 
         private string GetDomainNameToCheck(string domainName)
         {
+            string TrafficManagerSuffix = Profile.CurrentEnvironment.TrafficManagerEndpointSuffix ?? WindowsAzureEnvironmentConstants.AzureTrafficManagerEndpointSuffix;
+
             if (!string.IsNullOrEmpty(domainName) && !domainName.ToLower().EndsWith(TrafficManagerSuffix))
             {
                 return string.Format("{0}.{1}", domainName, TrafficManagerSuffix);

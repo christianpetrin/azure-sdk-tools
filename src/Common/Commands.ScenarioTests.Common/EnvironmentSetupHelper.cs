@@ -127,6 +127,7 @@ namespace Microsoft.WindowsAzure.Commands.ScenarioTest
                 TokenProvider = WindowsAzureProfile.Instance.TokenProvider,
                 GalleryEndpoint = new Uri(WindowsAzureProfile.Instance.CurrentEnvironment.GalleryEndpoint),
                 SqlDatabaseDnsSuffix = WindowsAzureProfile.Instance.CurrentEnvironment.SqlDatabaseDnsSuffix,
+                TrafficManagerEndpointSuffix = WindowsAzureProfile.Instance.CurrentEnvironment.TrafficManagerEndpointSuffix,
                 CurrentStorageAccountName = Environment.GetEnvironmentVariable("AZURE_STORAGE_ACCOUNT"),
                 IsDefault = true
             };

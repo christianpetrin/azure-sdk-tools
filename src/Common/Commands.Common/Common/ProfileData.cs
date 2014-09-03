@@ -73,6 +73,7 @@ namespace Microsoft.WindowsAzure.Commands.Utilities.Common
             GalleryEndpoint = inMemoryEnvironment.GalleryEndpoint;
             ActiveDirectoryServiceEndpointResourceId = inMemoryEnvironment.ActiveDirectoryServiceEndpointResourceId;
             SqlDatabaseDnsSuffix = inMemoryEnvironment.SqlDatabaseDnsSuffix ?? WindowsAzureEnvironmentConstants.AzureSqlDatabaseDnsSuffix;
+            TrafficManagerEndpointSuffix = inMemoryEnvironment.TrafficManagerEndpointSuffix ?? WindowsAzureEnvironmentConstants.AzureTrafficManagerEndpointSuffix;
         }
 
         /// <summary>
@@ -93,6 +94,7 @@ namespace Microsoft.WindowsAzure.Commands.Utilities.Common
                 GalleryEndpoint = this.GalleryEndpoint,
                 ActiveDirectoryServiceEndpointResourceId = this.ActiveDirectoryServiceEndpointResourceId,
                 SqlDatabaseDnsSuffix = this.SqlDatabaseDnsSuffix ?? WindowsAzureEnvironmentConstants.AzureSqlDatabaseDnsSuffix,
+                TrafficManagerEndpointSuffix = this.TrafficManagerEndpointSuffix ?? WindowsAzureEnvironmentConstants.AzureTrafficManagerEndpointSuffix,
             };
         }
 
@@ -111,7 +113,8 @@ namespace Microsoft.WindowsAzure.Commands.Utilities.Common
                     { AzureEnvironment.Endpoint.ResourceManagerEndpoint, this.ResourceManagerEndpoint },
                     { AzureEnvironment.Endpoint.ServiceEndpoint, this.ServiceEndpoint },
                     { AzureEnvironment.Endpoint.SqlDatabaseDnsSuffix, this.SqlDatabaseDnsSuffix },
-                    { AzureEnvironment.Endpoint.StorageEndpointSuffix, this.StorageEndpointSuffix }
+                    { AzureEnvironment.Endpoint.StorageEndpointSuffix, this.StorageEndpointSuffix },
+                    { AzureEnvironment.Endpoint.TrafficManagerEndpointSuffix, this.TrafficManagerEndpointSuffix },
                 }
             };
         }
@@ -148,6 +151,9 @@ namespace Microsoft.WindowsAzure.Commands.Utilities.Common
 
         [DataMember]
         public string SqlDatabaseDnsSuffix { get; set; }
+
+        [DataMember]
+        public string TrafficManagerEndpointSuffix { get; set; }
     }
 
     /// <summary>
@@ -184,6 +190,7 @@ namespace Microsoft.WindowsAzure.Commands.Utilities.Common
             RegisteredResourceProviders = inMemorySubscription.RegisteredResourceProviders;
             GalleryEndpoint = inMemorySubscription.GalleryEndpoint != null ? inMemorySubscription.GalleryEndpoint.ToString() : null;
             SqlDatabaseDnsSuffix = inMemorySubscription.SqlDatabaseDnsSuffix ?? WindowsAzureEnvironmentConstants.AzureSqlDatabaseDnsSuffix;
+            TrafficManagerEndpointSuffix = inMemorySubscription.TrafficManagerEndpointSuffix ?? WindowsAzureEnvironmentConstants.AzureTrafficManagerEndpointSuffix;
         }
 
         /// <summary>
@@ -207,6 +214,7 @@ namespace Microsoft.WindowsAzure.Commands.Utilities.Common
                 CurrentStorageAccountName = CloudStorageAccount,
                 GalleryEndpoint = !string.IsNullOrEmpty(GalleryEndpoint) ? new Uri(GalleryEndpoint) : null,
                 SqlDatabaseDnsSuffix = SqlDatabaseDnsSuffix ?? WindowsAzureEnvironmentConstants.AzureSqlDatabaseDnsSuffix,
+                TrafficManagerEndpointSuffix = TrafficManagerEndpointSuffix ?? WindowsAzureEnvironmentConstants.AzureTrafficManagerEndpointSuffix,
             };
             RegisteredResourceProviders = RegisteredResourceProviders ?? new string[0];
             foreach (var resource in RegisteredResourceProviders)
@@ -306,5 +314,8 @@ namespace Microsoft.WindowsAzure.Commands.Utilities.Common
 
         [DataMember]
         public string SqlDatabaseDnsSuffix { get; set; }
+
+        [DataMember]
+        public string TrafficManagerEndpointSuffix { get; set; }
     }
 }

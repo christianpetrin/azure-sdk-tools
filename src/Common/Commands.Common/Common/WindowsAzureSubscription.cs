@@ -62,6 +62,8 @@ namespace Microsoft.WindowsAzure.Commands.Utilities.Common
 
         public string SqlDatabaseDnsSuffix { get; set; }
 
+        public string TrafficManagerEndpointSuffix { get; set; }
+
         public bool IsDefault { get; set; }
         
         public X509Certificate2 Certificate { get; set; }
@@ -183,6 +185,7 @@ namespace Microsoft.WindowsAzure.Commands.Utilities.Common
             SubscriptionName = newSubscription.SubscriptionName;
             GalleryEndpoint = newSubscription.GalleryEndpoint;
             SqlDatabaseDnsSuffix = newSubscription.SqlDatabaseDnsSuffix ?? WindowsAzureEnvironmentConstants.AzureSqlDatabaseDnsSuffix;
+            TrafficManagerEndpointSuffix = newSubscription.TrafficManagerEndpointSuffix ?? WindowsAzureEnvironmentConstants.AzureTrafficManagerEndpointSuffix;
         }
 
         /// <summary>

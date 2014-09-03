@@ -288,6 +288,11 @@ namespace Microsoft.WindowsAzure.Commands.Utilities.Common
                 s.SqlDatabaseDnsSuffix = WindowsAzureEnvironmentConstants.AzureSqlDatabaseDnsSuffix;
             }
 
+            if (string.IsNullOrEmpty(s.TrafficManagerEndpointSuffix))
+            {
+                s.TrafficManagerEndpointSuffix = WindowsAzureEnvironmentConstants.AzureTrafficManagerEndpointSuffix;
+            }
+
             Save();
         }
 

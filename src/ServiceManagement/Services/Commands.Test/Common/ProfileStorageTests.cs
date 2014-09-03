@@ -43,6 +43,7 @@ namespace Microsoft.WindowsAzure.Commands.Test.Common
                     StorageEndpointSuffix = "storage.on.azure",
                     ActiveDirectoryServiceEndpointResourceId = "https://some.ActiveDirectory.azure/",
                     SqlDatabaseDnsSuffix = WindowsAzureEnvironmentConstants.AzureSqlDatabaseDnsSuffix,
+                    TrafficManagerEndpointSuffix = WindowsAzureEnvironmentConstants.AzureTrafficManagerEndpointSuffix,
                 },
                 new AzureEnvironmentData
                 {
@@ -55,6 +56,7 @@ namespace Microsoft.WindowsAzure.Commands.Test.Common
                     StorageEndpointSuffix = "storage.on.other",
                     ActiveDirectoryServiceEndpointResourceId = "https://other.ActiveDirectory.azure/",
                     SqlDatabaseDnsSuffix = WindowsAzureEnvironmentConstants.ChinaSqlDatabaseDnsSuffix,
+                    TrafficManagerEndpointSuffix = WindowsAzureEnvironmentConstants.ChinaTrafficManagerEndpointSuffix,
                 }
             },
             Subscriptions = new []
@@ -68,6 +70,7 @@ namespace Microsoft.WindowsAzure.Commands.Test.Common
                     SubscriptionId = "subscription1Id",
                     ActiveDirectoryServiceEndpointResourceId = "https://some.ActiveDirectory.azure/",
                     SqlDatabaseDnsSuffix = WindowsAzureEnvironmentConstants.AzureSqlDatabaseDnsSuffix,
+                    TrafficManagerEndpointSuffix = WindowsAzureEnvironmentConstants.AzureTrafficManagerEndpointSuffix,
                 }, 
                 new AzureSubscriptionData
                 {
@@ -78,6 +81,7 @@ namespace Microsoft.WindowsAzure.Commands.Test.Common
                     SubscriptionId = "subscription2Id",
                     ActiveDirectoryServiceEndpointResourceId = "https://other.ActiveDirectory.azure/",
                     SqlDatabaseDnsSuffix = WindowsAzureEnvironmentConstants.ChinaSqlDatabaseDnsSuffix,
+                    TrafficManagerEndpointSuffix = WindowsAzureEnvironmentConstants.ChinaTrafficManagerEndpointSuffix,
                 }
             }
         };
@@ -156,6 +160,7 @@ namespace Microsoft.WindowsAzure.Commands.Test.Common
                 GalleryEndpoint = sourceEnv.GalleryEndpoint,
                 ActiveDirectoryServiceEndpointResourceId = sourceEnv.ActiveDirectoryServiceEndpointResourceId,
                 SqlDatabaseDnsSuffix = sourceEnv.SqlDatabaseDnsSuffix,
+                TrafficManagerEndpointSuffix = sourceEnv.TrafficManagerEndpointSuffix,
             });
 
             var locator = typeof (ResourceLocator);
@@ -219,6 +224,7 @@ namespace Microsoft.WindowsAzure.Commands.Test.Common
             Assert.AreEqual(expected.ActiveDirectoryServiceEndpointResourceId,
                 actual.ActiveDirectoryServiceEndpointResourceId);
             Assert.AreEqual(expected.SqlDatabaseDnsSuffix, actual.SqlDatabaseDnsSuffix);
+            Assert.AreEqual(expected.TrafficManagerEndpointSuffix, actual.TrafficManagerEndpointSuffix);
         }
 
         private void AssertEqual(AzureSubscriptionData expected, AzureSubscriptionData actual)
@@ -233,6 +239,7 @@ namespace Microsoft.WindowsAzure.Commands.Test.Common
             Assert.AreEqual(expected.ActiveDirectoryServiceEndpointResourceId,
                 actual.ActiveDirectoryServiceEndpointResourceId);
             Assert.AreEqual(expected.SqlDatabaseDnsSuffix, actual.SqlDatabaseDnsSuffix);
+            Assert.AreEqual(expected.TrafficManagerEndpointSuffix, actual.TrafficManagerEndpointSuffix);
         }
     }
 }
